@@ -44,6 +44,24 @@ func CreateBarber(c echo.Context) error{
 	return c.JSON(http.StatusOK, response)
 }
 
+func GetBarbers(c echo.Context) error{
+	db := config.DB()
+    var barbers []models.Barber
+
+    if err := db.Find(&barbers).Error; err != nil{
+		data := map[string]interface{}{
+			"message": err.Error(),
+		}
+
+		return c.JSON(http.StatusInternalServerError, data)
+    }
+
+    response := map[string]interface{}{
+		"data": barbers,
+	}
+
+	return c.JSON(http.StatusOK, response)
+}
 
 func GetBarberById(c echo.Context) error{
 	db := config.DB()
