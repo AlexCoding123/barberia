@@ -12,7 +12,7 @@ var e error
 
 func DatabaseInit() {
 	host := "localhost"
-	user := "alexdavilaalonso"
+	user := "alexcode123"
 	password := "Baseball22"
 	dbName := "barbershop"
 	port := 5432
