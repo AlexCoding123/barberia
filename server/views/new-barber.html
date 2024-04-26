@@ -1,0 +1,52 @@
+{{ block "new-barber" . }}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Barber</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+    <body class="bg-gray-100">
+        <nav class="bg-gray-800 p-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div>
+                    <div><a href="/">Home</a></div>
+                </div>
+                <div>
+                    <div><a href="/barber-form">Register</a></div>
+                </div>
+            </div>
+        </nav>
+        <div class="h-screen flex justify-center items-center bg-white">
+        <form class="bg-white">
+            <h1 class="text-gray-800 font-bold text-2xl mb-1">New Barber</h1>
+            <p class="text-sm font-normal text-gray-600 mb-7">Create a new barber</p>
+            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+                <i class="fas fa-user text-gray-400 mr-2"></i>
+                <input class="pl-2 outline-none border-none" type="text" name="name" id="name" placeholder="Name" />
+            </div>
+            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+                <i class="fas fa-user text-gray-400 mr-2"></i>
+                <input class="pl-2 outline-none border-none" type="text" name="last_name" id="last_name" placeholder="Last Name" />
+            </div>
+            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+                <i class="fas fa-cut text-gray-400 mr-2"></i>
+                <input class="pl-2 outline-none border-none" type="text" name="barber_name" id="barber_name" placeholder="Barber Name" />
+            </div>
+            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+                <i class="fas fa-phone-alt text-gray-400 mr-2"></i>
+                <input class="pl-2 outline-none border-none" type="text" name="phone_number" id="phone_number" placeholder="Phone Number" />
+            </div>
+            <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+                <i class="fas fa-lock text-gray-400 mr-2"></i>
+                <input class="pl-2 outline-none border-none" type="password" name="password" id="password" placeholder="Password" />
+            </div>
+            <button type="submit" class="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2">Create</button>
+        </form>
+    </div>
+</body>
+</html>
+{{ end }}
+
