@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"barberia/server/config"
 	"barberia/server/models"
-
+    "fmt"
 	"github.com/labstack/echo/v4"
 )
 
@@ -28,6 +28,7 @@ func CreateBarber(c echo.Context) error{
         BarberName:  b.BarberName,
         PhoneNumber: b.PhoneNumber,
         Password:    b.Password,
+        ProfilePicture: b.ProfilePicture,
     }
 
     if err := db.Create(&barber).Error; err != nil {
@@ -50,26 +51,26 @@ func GetBarberForm(c echo.Context) error{
 
 
 func LoadHomePage(c echo.Context) error{
-    return c.Render(200, "index", nil)
+    fmt.Println("LoadHomePage function called")
+    // Fetch barbers using GetBarbers
+    barbers, err := GetBarbers(c)
+    if err != nil {
+        // Handle error if GetBarbers fails
+        fmt.Println(err)
+        return err
+    }
+    return c.Render(http.StatusOK, "index", barbers)
 }
 
-func GetBarbers(c echo.Context) error{
+func GetBarbers(c echo.Context) ([]models.Barber, error){
 	db := config.DB()
     var barbers []models.Barber
 
     if err := db.Find(&barbers).Error; err != nil{
-		data := map[string]interface{}{
-			"message": err.Error(),
-		}
-
-		return c.JSON(http.StatusInternalServerError, data)
+		return nil, err
     }
 
-    response := map[string]interface{}{
-		"data": barbers,
-	}
-
-	return c.JSON(http.StatusOK,response)
+	return barbers, nil
 }
 
 func GetBarberById(c echo.Context) error{

@@ -7,5 +7,6 @@ type Barber struct {
     BarberName string `json:"barber_name"`
     PhoneNumber int    `json:"phone_number"`
     Password   string `json:"password"`
+    ProfilePicture   string `json:"profile_picture"`
 }
 

@@ -6,7 +6,7 @@ import (
 )
 
 func RegisterBarberRoutes (e *echo.Echo) {
-    e.GET("/barbers", controller.GetBarbers)
+    //e.GET("/barbers", controller.GetBarbers)
     e.GET("/barbers/:id", controller.GetBarberById)
     e.POST("/new-barber", controller.CreateBarber)
     e.PUT("/barbers/:id", controller.EditBarber)
