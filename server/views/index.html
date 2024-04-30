@@ -1,25 +1,79 @@
 {{ block "index" . }}
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Barbershop</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.6.0/dist/htmx.min.js"></script>
-    </head>
-    <body>
-        <nav class="bg-gray-800 p-4">
-            <div class="max-w-7xl mx-auto flex justify-between items-center">
-                <div>
-                    <div><a href="/">Home</a></div>
-                </div>
-                <div>
-                    <div><a href="/barber-form">Register</a></div>
-                </div>
+<head>
+    <title>Barbershop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.6.0/dist/htmx.min.js"></script>
+</head>
+<body>
+    <nav class="bg-gray-800 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div>
+                <div><a href="/">Home</a></div>
             </div>
-        </nav>
+            <div>
+                <div><a href="/barber-form">Register</a></div>
+            </div>
+        </div>
+    </nav>
+    <header class="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
+        <div
+            class="relative z-30 p-5 text-2xl text-white bg-purple-300 bg-opacity-50 rounded-xl"
+        >
+            Maestria
+        </div>
+        <video
+            autoplay
+            loop
+            muted
+            class="absolute z-10 w-auto min-w-full min-h-full max-w-none"
+        >
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
+                type="video/mp4"
+            />
+            Your browser does not support the video tag.
+        </video>
+        </header>
+        <main>
+            <section>
+                <!-- Container -->
+                <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
+                    <!-- Heading Div -->
+                    <div class="text-center">
+                        <h2 class="text-3xl font-semibold md:text-5xl">Our Barbers <span class="bg-[url('https://assets.website-files.com/63904f663019b0d8edf8d57c/639156ce1c70c97aeb755c8a_Rectangle%2010%20(1).svg')] bg-cover bg-center px-4 text-white">Members</span>
+                        </h2>
+                        <p class="mx-auto mb-8 mt-4 max-w-[528px] text-[#636262] md:mb-12 lg:mb-16">Lorem ipsum dolor sit amet elit ut aliquam</p>
+                    </div>
+                    <!-- Team Div -->
+                    {{ range . }}
+                    <div class="mx-auto grid max-w-[1040px] grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 sm:justify-items-stretch md:grid-cols-2 md:gap-4 lg:gap-6">
+                        <!-- Item -->
+                        <div class="flex flex-col items-center justify-center gap-4 rounded-xl border border-solid border-[#636262] p-4 [box-shadow:rgb(0,_0,_0)_6px_6px]">
+                            <img src="https://assets.website-files.com/63904f663019b0d8edf8d57c/63980b390754711c1de95455_Rectangle%2040024-2.jpg" alt="" class="mb-4 inline-block h-56 w-full rounded-xl object-cover lg:h-56" />
+                            <p class="mb-2 font-bold">{{ .BarberName }}</p>
+                            <p class="mb-2 text-sm text-[#636262]">Elite Barber</p>
+                            <div class="mt-4 flex flex-wrap">
+                                <a href="#" class="mr-4 flex h-8 w-8 max-w-full flex-col items-center justify-center rounded-sm bg-[#ecf2ff] px-2 font-bold text-[#1353fe]">
+                                    <img src="https://assets.website-files.com/63904f663019b0d8edf8d57c/63980be38447c887bfd955b8_InstagramLogo.svg" alt="" class="inline-block h-full w-full" />
+                                </a>
+                                <a href="#" class="mr-4 flex h-8 w-8 max-w-full flex-col items-center justify-center rounded-sm bg-[#ecf2ff] px-2 font-bold text-[#1353fe]">
+                                    <img src="https://assets.website-files.com/63904f663019b0d8edf8d57c/63980be307547130d2e965fd_SlackLogo.svg" alt="" class="inline-block h-full w-full" />
+                                </a>
+                                <a href="#" class="flex h-8 w-8 max-w-full flex-col items-center justify-center rounded-sm bg-[#ecf2ff] px-2 font-bold text-[#1353fe]">
+                                    <img src="https://assets.website-files.com/63904f663019b0d8edf8d57c/63980be16658297f6be979d2_TwitterLogo.svg" alt="" class="inline-block h-full w-full" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </section>
+        </main>
     </body>
 </html>
 {{ end }}
